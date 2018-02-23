@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:latest-node-browsers
+    steps:
+      - checkout
+      - run: echo "build"
+  test:
+    docker:
+      - image: circleci/python:latest-node-browsers
+    steps:
+      - checkout
+      - run: echo "test"
+     
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
