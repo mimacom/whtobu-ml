@@ -2,7 +2,7 @@
 
 if [ ! -d "ml" ]; then
     pip install virtualenv
-    virtualenv ml
+    virtualenv --python=python2.7 ml
 fi
 
 source activate.sh
