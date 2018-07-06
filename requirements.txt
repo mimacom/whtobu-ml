@@ -1,1 +1,2 @@
 turicreate==5.0b2
+requests==2.18.4
