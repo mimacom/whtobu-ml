@@ -41,18 +41,23 @@ function gen_images {
 
 find images/*/*.jpg ! -name "*rotated*" ! -name "*flop*" ! -name "*grayscale*" 2> /dev/null | while read file
 do
-        echo "Convert $file"
+    echo "Convert $file"
 
-        opt_file=$(echo $file | sed 's/ /-/g' | sed 's/\//-/g')
-        new_file=$(echo $file | sed 's/ /-/g')
+    opt_file=$(echo $file | sed 's/ /-/g' | sed 's/\//-/g')
+    new_file=$(echo $file | sed 's/ /-/g')
 
-        convert "$file" -resize 500 "$file"
-        jpegtran -copy none -optimize "$file" > "/dev/shm/$opt_file" && cat "/dev/shm/$opt_file" > "$file"
+    convert "$file" -resize 640 "$file"
+    jpegtran -copy none -optimize "$file" > "/dev/shm/$opt_file" && cat "/dev/shm/$opt_file" > "$file"
 
-        gen_images "$file"&
+#        gen_images "$file"&
+#        gen_flop_images "$file"&
+#        gen_grayscale_images "$file"&
+done
 
-        gen_flop_images "$file"&
-        gen_grayscale_images "$file"&
+find images/*/*.png ! -name "*rotated*" ! -name "*flop*" ! -name "*grayscale*" 2> /dev/null | while read file
+do
+    convert "$file" -resize 640 "$file"
+    optipng -o7 -quiet "$file"
 done
 
 python prepair.py
