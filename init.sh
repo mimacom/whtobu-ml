@@ -1,7 +1,9 @@
 #!/bin/bash
 
+sudo pip install --upgrade pip
+
 if [ ! -d "ml" ]; then
-    pip install virtualenv
+    sudo pip install virtualenv
     virtualenv --python=python2.7 ml
 fi
 
