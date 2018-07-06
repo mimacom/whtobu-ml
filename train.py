@@ -14,8 +14,7 @@ predictions = model.predict(test_data)
 
 # Evaluate the model and save the results into a dictionary
 metrics = model.evaluate(test_data)
-print(metrics['mean_average_precision'])
-print(metrics['accuracy'])
+print(metrics)
 
 # Save the model for later use in Turi Create
 model.save('mymodel.model')
