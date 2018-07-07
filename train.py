@@ -17,7 +17,7 @@ metrics = model.evaluate(test_data)
 print(metrics)
 
 # Save the model for later use in Turi Create
-model.save('product.model')
+model.save('ObjectDetection.model')
 
 # Export for use in Core ML
-model.export_coreml('ProductClassifier.mlmodel')
+model.export_coreml('ObjectDetection.mlmodel')
