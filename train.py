@@ -1,5 +1,7 @@
 import turicreate as tc
 
+tc.config.set_runtime_config('TURI_DEFAULT_NUM_PYLAMBDA_WORKERS', 32)
+
 # Load the data
 data =  tc.SFrame('images.sframe')
 
