@@ -109,3 +109,5 @@ ml
 images/*
 *.sframe
 *.mlmodel
+*.model
+nohup.out
